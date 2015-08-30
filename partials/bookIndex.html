@@ -27,8 +27,9 @@
         <input type="text" ng-model="book.author" class="form-control" placeholder="Author" required>
       </div>
       <input type="submit" value="Save Changes" class="btn btn-default">
-      <input ng-click="book.editForm = false" value="Cancel" class="btn btn-default">
       <a href="javasript:void(0)" ng-click="deleteBook(book)" class="btn btn-default">Delete Book</a>
+      <input ng-click="book.editForm = false" value="Cancel" class="btn btn-default">
+
     </form>
   </li>
 </ul>
