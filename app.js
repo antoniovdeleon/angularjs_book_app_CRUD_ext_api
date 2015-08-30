@@ -1,6 +1,6 @@
 angular.module('bookApp', ['ngRoute'])
 
-	.config(['$routeProvider', function ($routeProvider) {
+	.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	   $routeProvider
 	   .when('/', {
 	       templateUrl: 'partials/bookIndex.html',
@@ -17,6 +17,12 @@ angular.module('bookApp', ['ngRoute'])
 	   .otherwise({
 	       redirectTo: '/'
 	     });
+
+	   // take out the # on the routes, but page doesn't refresh right anymore
+	   $locationProvider.html5Mode({
+	     enabled: true,
+	     requireBase: false
+	   });
 	}])
 
 	.controller('BooksCtrl', ['$scope', '$http', function ($scope, $http) {
