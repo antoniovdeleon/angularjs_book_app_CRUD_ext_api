@@ -21,8 +21,3 @@ angular.module('bookApp', ['ngRoute', 'starter.controllers'])
 
 
 
-
-// NOTES -------------
-	// scopes have different level of inheritance
-	// root scope is available anywhere in our app
-	// scope is available to our controller
