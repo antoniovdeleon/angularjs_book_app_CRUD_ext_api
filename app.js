@@ -52,6 +52,18 @@ angular.module('bookApp', ['ngRoute'])
 			  	book.editForm = false; 
 			  });
  		};
+
+ 		$scope.deleteBook = function(book) {
+ 			$http.delete('http://daretodiscover.herokuapp.com/books/' + book.id)
+ 				.then(function(response) {
+ 					var bookIndex = $scope.books.indexOf(book);
+ 					$scope.books.splice(bookIndex, 1);
+ 				})
+ 		}
+
+
+
+
 	}])
 	
 	.controller('BooksShowCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
