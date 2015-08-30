@@ -1,0 +1,33 @@
+
+<h1>Book App in Angular js</h1>
+<hr>
+<form name="bookForm" ng-submit="createBook()">
+  <div class="form-group">
+    <input type="text" ng-model="book.title" class="form-control" placeholder="Title" required> 
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="book.author" class="form-control" placeholder="Author" required>
+  </div>
+  <input type="submit" value="Save Book" class="btn btn-default" ng-disabled="bookForm.$invalid">
+</form>
+<br>
+<ul>
+  <li ng-repeat="book in books">
+    <p ng-hide="book.editForm">
+      <em><a href="/#/books/{{book.id}}">{{book.title}}</a></em> by {{book.author}}
+      &nbsp;
+      <!-- link without a route -->
+      <a href="javascript:void(0)" ng-click="book.editForm = true">Edit</a>
+    </p>
+    <form ng-show="book.editForm" ng-submit="updateBook(book)" >
+      <div class="form-group">
+        <input type="text" ng-model="book.title" class="form-control" placeholder="Title" required> 
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="book.author" class="form-control" placeholder="Author" required>
+      </div>
+      <input type="submit" value="Save Changes" class="btn btn-default">
+      <input ng-click="book.editForm = false" value="Cancel" class="btn btn-default">
+    </form>
+  </li>
+</ul>
