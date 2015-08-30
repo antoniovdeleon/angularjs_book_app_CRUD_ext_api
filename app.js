@@ -67,9 +67,9 @@ angular.module('bookApp', ['ngRoute'])
 	}])
 	
 	.controller('BooksShowCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
-		var bookId = $routeParams.id;
-
-		$http.get('http://daretodiscover.herokuapp.com/books/' + bookId )
+		$scope.book = {}
+		
+		$http.get('http://daretodiscover.herokuapp.com/books/' + $routeParams.id)
 		.then(function(response) {
 				// we're filling in our scope.books with the api data
 		    $scope.book = response.data;
