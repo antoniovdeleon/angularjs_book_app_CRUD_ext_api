@@ -1,9 +1,5 @@
 angular.module('starter.controllers', [])
 
-.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-
-}])
-
 .controller('BooksCtrl', ['$scope', '$http', function ($scope, $http) {
 		// set books as an empty array
  		$scope.books = [];
@@ -45,9 +41,6 @@ angular.module('starter.controllers', [])
  					$scope.books.splice(bookIndex, 1);
  				})
  		}
-
-
-
 
 	}])
 	
